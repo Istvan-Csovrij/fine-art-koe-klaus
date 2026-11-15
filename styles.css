@@ -1,23 +1,23 @@
 :root {
-  /* Rolls-Royce Deep Midnight Sapphire & Dark Pearl Palette */
-  --bg-primary: #03050a;
-  --bg-secondary: #070b14;
-  --bg-card: #0a101d;
-  --bg-card-hover: #0e172a;
-  /* Tiefes, dunkles Rolls-Royce Royal-/Mitternachtsblau mit dezentem Perleffekt */
-  --gold: #2b5cbe;
-  --gold-light: #6b96e8;
-  --gold-dark: #152c62;
-  --pearl-glow: #b8ccf5;
+  /* Tiefschwarzer Rolls-Royce Innenraum + sehr dunkles Mitternachts-Perlblau */
+  --bg-primary: #060709;
+  --bg-secondary: #0b0c10;
+  --bg-card: #101217;
+  --bg-card-hover: #151820;
+  /* Sehr dunkles Nachtblau mit silbrigem Perleffekt (kaum helles Blau!) */
+  --gold: #1c2d4f;
+  --gold-light: #7b93b8;
+  --gold-dark: #0d1629;
+  --pearl-glow: #d8e1ef;
   --crimson: #b91c1c;
   --crimson-light: #ef4444;
-  --text-main: #edf1f7;
-  --text-muted: #8492a6;
-  --border-gold: rgba(59, 108, 204, 0.28);
-  --border-subtle: rgba(148, 163, 184, 0.09);
+  --text-main: #f1f3f7;
+  --text-muted: #8b93a1;
+  --border-gold: rgba(123, 147, 184, 0.24);
+  --border-subtle: rgba(255, 255, 255, 0.07);
   --success: #10b981;
   --warning: #f59e0b;
-  --shadow-luxury: 0 18px 42px rgba(0, 0, 0, 0.9), 0 0 18px rgba(30, 64, 175, 0.18);
+  --shadow-luxury: 0 18px 42px rgba(0, 0, 0, 0.92);
   --radius-md: 14px;
   --radius-lg: 20px;
 }
@@ -31,19 +31,19 @@
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   background-color: var(--bg-primary);
-  /* Dezenter, edler Rolls-Royce Starlight Headliner auf tiefdunklem Grund */
+  /* Tiefschwarzer Himmel mit feinen silber-perlfarbenen Sternen (ohne blauen Nebel) */
   background-image:
-    radial-gradient(1.2px 1.2px at 12% 8%, rgba(210, 228, 255, 0.65) 50%, transparent 100%),
-    radial-gradient(1px 1px at 28% 22%, rgba(120, 165, 245, 0.55) 50%, transparent 100%),
-    radial-gradient(1.2px 1.2px at 46% 14%, rgba(210, 228, 255, 0.6) 50%, transparent 100%),
-    radial-gradient(1px 1px at 68% 9%, rgba(120, 165, 245, 0.6) 50%, transparent 100%),
-    radial-gradient(1.5px 1.5px at 84% 19%, rgba(220, 235, 255, 0.7) 50%, transparent 100%),
-    radial-gradient(1px 1px at 19% 44%, rgba(120, 165, 245, 0.45) 50%, transparent 100%),
-    radial-gradient(1.2px 1.2px at 59% 38%, rgba(210, 228, 255, 0.5) 50%, transparent 100%),
-    radial-gradient(1px 1px at 91% 48%, rgba(120, 165, 245, 0.5) 50%, transparent 100%),
-    radial-gradient(1.2px 1.2px at 35% 72%, rgba(210, 228, 255, 0.45) 50%, transparent 100%),
-    radial-gradient(1px 1px at 77% 81%, rgba(120, 165, 245, 0.5) 50%, transparent 100%),
-    radial-gradient(circle at 50% 0%, rgba(21, 44, 98, 0.25) 0%, rgba(7, 11, 20, 0.6) 55%, transparent 85%);
+    radial-gradient(1.2px 1.2px at 12% 8%, rgba(235, 240, 250, 0.65) 50%, transparent 100%),
+    radial-gradient(1px 1px at 28% 22%, rgba(180, 195, 220, 0.5) 50%, transparent 100%),
+    radial-gradient(1.2px 1.2px at 46% 14%, rgba(235, 240, 250, 0.55) 50%, transparent 100%),
+    radial-gradient(1px 1px at 68% 9%, rgba(180, 195, 220, 0.55) 50%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 84% 19%, rgba(240, 245, 255, 0.7) 50%, transparent 100%),
+    radial-gradient(1px 1px at 19% 44%, rgba(180, 195, 220, 0.45) 50%, transparent 100%),
+    radial-gradient(1.2px 1.2px at 59% 38%, rgba(235, 240, 250, 0.5) 50%, transparent 100%),
+    radial-gradient(1px 1px at 91% 48%, rgba(180, 195, 220, 0.45) 50%, transparent 100%),
+    radial-gradient(1.2px 1.2px at 35% 72%, rgba(235, 240, 250, 0.45) 50%, transparent 100%),
+    radial-gradient(1px 1px at 77% 81%, rgba(180, 195, 220, 0.45) 50%, transparent 100%),
+    radial-gradient(circle at 50% 0%, rgba(16, 26, 48, 0.22) 0%, transparent 65%);
   background-attachment: fixed;
   color: var(--text-main);
   line-height: 1.6;
@@ -61,10 +61,10 @@ h1, h2, h3, .serif-title {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(3, 5, 10, 0.92);
+  background: rgba(6, 7, 9, 0.94);
   backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--border-gold);
-  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.75);
   padding: 0.75rem 1.5rem;
 }
 
@@ -92,8 +92,8 @@ h1, h2, h3, .serif-title {
   height: 58px;
   border-radius: 50%;
   background: #f5f7fa;
-  border: 2px solid var(--gold);
-  box-shadow: 0 0 16px rgba(43, 92, 190, 0.4);
+  border: 2px solid var(--gold-light);
+  box-shadow: 0 0 14px rgba(0, 0, 0, 0.8);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -157,13 +157,13 @@ h1, h2, h3, .serif-title {
 .nav-pill:hover, .nav-pill.active {
   color: var(--pearl-glow);
   border-color: var(--border-gold);
-  background: linear-gradient(135deg, rgba(25, 54, 118, 0.45), rgba(43, 92, 190, 0.12));
+  background: linear-gradient(135deg, #0d1629, #172645);
 }
 
 /* Admin Status Bar */
 .admin-topbar {
-  background: linear-gradient(90deg, #050914 0%, #0d1b3a 50%, #050914 100%);
-  border-bottom: 2px solid var(--gold);
+  background: linear-gradient(90deg, #07090e 0%, #0e1628 50%, #07090e 100%);
+  border-bottom: 1px solid var(--gold-light);
   padding: 0.75rem 1.5rem;
   display: none;
 }
@@ -198,7 +198,7 @@ h1, h2, h3, .serif-title {
   flex-wrap: wrap;
 }
 
-/* Buttons - Dark Metallic Rolls-Royce Sapphire Pearl */
+/* Buttons - Tiefdunkles Mitternachtsblau mit feinem Silber-Perlschimmer */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -215,26 +215,26 @@ h1, h2, h3, .serif-title {
 }
 
 .btn-gold {
-  background: linear-gradient(135deg, #10234d 0%, #1d4087 55%, #2e5cb8 100%);
-  color: #f0f5ff;
-  border-color: rgba(107, 150, 232, 0.42);
-  box-shadow: 0 4px 16px rgba(15, 35, 80, 0.7), inset 0 1px 1px rgba(184, 204, 245, 0.28);
+  background: linear-gradient(135deg, #0b1324 0%, #152442 55%, #1f345e 100%);
+  color: var(--pearl-glow);
+  border-color: rgba(160, 180, 212, 0.38);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.8), inset 0 1px 1px rgba(220, 230, 245, 0.22);
 }
 
 .btn-gold:hover {
-  background: linear-gradient(135deg, #152d63 0%, #244ea3 55%, #386cd4 100%);
+  background: linear-gradient(135deg, #101b33 0%, #1c2f57 55%, #274275 100%);
   transform: translateY(-1px);
-  box-shadow: 0 6px 20px rgba(30, 64, 175, 0.45), inset 0 1px 2px rgba(255, 255, 255, 0.35);
+  border-color: rgba(200, 215, 240, 0.55);
 }
 
 .btn-outline {
-  background: rgba(10, 16, 29, 0.75);
+  background: rgba(16, 18, 23, 0.85);
   color: var(--text-main);
   border-color: var(--border-gold);
 }
 
 .btn-outline:hover {
-  background: rgba(29, 64, 135, 0.28);
+  background: rgba(24, 39, 71, 0.45);
   color: var(--pearl-glow);
   border-color: var(--gold-light);
 }
@@ -259,17 +259,17 @@ h1, h2, h3, .serif-title {
   margin-left: 0.2rem;
 }
 
-/* Hero Banner - Dark Starlight Headliner */
+/* Hero Banner - Fast komplett Schwarz mit feinen Sternen */
 .hero {
   position: relative;
   padding: 3.5rem 1.5rem 2.5rem;
   background:
-    radial-gradient(1.5px 1.5px at 15% 25%, rgba(220, 235, 255, 0.8) 50%, transparent 100%),
-    radial-gradient(1px 1px at 32% 18%, rgba(135, 175, 245, 0.7) 50%, transparent 100%),
-    radial-gradient(1.5px 1.5px at 54% 12%, rgba(220, 235, 255, 0.75) 50%, transparent 100%),
-    radial-gradient(1px 1px at 73% 28%, rgba(135, 175, 245, 0.7) 50%, transparent 100%),
-    radial-gradient(1.5px 1.5px at 88% 16%, rgba(220, 235, 255, 0.8) 50%, transparent 100%),
-    radial-gradient(ellipse at 50% 0%, rgba(24, 52, 114, 0.22) 0%, rgba(10, 18, 38, 0.12) 45%, transparent 78%);
+    radial-gradient(1.5px 1.5px at 15% 25%, rgba(235, 242, 255, 0.75) 50%, transparent 100%),
+    radial-gradient(1px 1px at 32% 18%, rgba(175, 195, 225, 0.65) 50%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 54% 12%, rgba(235, 242, 255, 0.7) 50%, transparent 100%),
+    radial-gradient(1px 1px at 73% 28%, rgba(175, 195, 225, 0.6) 50%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 88% 16%, rgba(235, 242, 255, 0.75) 50%, transparent 100%),
+    radial-gradient(ellipse at 50% 0%, rgba(18, 30, 56, 0.22) 0%, transparent 70%);
   border-bottom: 1px solid var(--border-subtle);
 }
 
@@ -287,8 +287,8 @@ h1, h2, h3, .serif-title {
   width: 155px;
   height: 155px;
   border-radius: 26px;
-  border: 2px solid var(--gold);
-  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.85), 0 0 18px rgba(43, 92, 190, 0.3);
+  border: 2px solid var(--gold-light);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.9);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -308,7 +308,7 @@ h1, h2, h3, .serif-title {
 }
 
 .hero-content h1 span {
-  background: linear-gradient(135deg, #6b96e8 0%, #c7d9fa 50%, #4b79d2 100%);
+  background: linear-gradient(135deg, #8da4c8 0%, #e2e8f0 50%, #647ea8 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -331,7 +331,7 @@ h1, h2, h3, .serif-title {
   align-items: center;
   gap: 0.4rem;
   font-size: 0.82rem;
-  background: linear-gradient(135deg, rgba(16, 35, 77, 0.55), rgba(7, 11, 20, 0.85));
+  background: linear-gradient(135deg, #0c1424, #090b10);
   border: 1px solid var(--border-gold);
   padding: 0.35rem 0.85rem;
   border-radius: 999px;
@@ -374,10 +374,9 @@ h1, h2, h3, .serif-title {
 }
 
 .cat-tab.active {
-  background: linear-gradient(135deg, #10234d, #1c3b7a);
+  background: linear-gradient(135deg, #0d1629, #172747);
   border-color: var(--gold-light);
   color: var(--pearl-glow);
-  box-shadow: 0 4px 14px rgba(16, 35, 77, 0.65);
 }
 
 .sort-search-wrap {
@@ -415,26 +414,26 @@ h1, h2, h3, .serif-title {
 }
 
 .product-card {
-  background: linear-gradient(180deg, #0b1220 0%, #060a12 100%);
+  background: var(--bg-card);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-lg);
   overflow: hidden;
   display: flex;
   flex-direction: column;
   transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.8);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.85);
 }
 
 .product-card:hover {
   transform: translateY(-4px);
-  border-color: var(--gold);
+  border-color: var(--border-gold);
   box-shadow: var(--shadow-luxury);
 }
 
 .card-media {
   position: relative;
   height: 265px;
-  background: #04060c;
+  background: #07080b;
   overflow: hidden;
   cursor: pointer;
 }
@@ -471,9 +470,9 @@ h1, h2, h3, .serif-title {
 }
 
 .status-reserved {
-  background: rgba(29, 64, 135, 0.55);
-  color: #b8ccf5;
-  border: 1px solid rgba(107, 150, 232, 0.5);
+  background: rgba(21, 36, 66, 0.8);
+  color: var(--pearl-glow);
+  border: 1px solid var(--border-gold);
 }
 
 .status-sold {
@@ -487,9 +486,9 @@ h1, h2, h3, .serif-title {
   position: absolute;
   top: 12px;
   right: 12px;
-  background: rgba(4, 7, 14, 0.85);
+  background: rgba(6, 7, 9, 0.85);
   backdrop-filter: blur(8px);
-  border: 1px solid rgba(107, 150, 232, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   color: #fff;
   padding: 0.38rem 0.75rem;
   border-radius: 999px;
@@ -509,7 +508,7 @@ h1, h2, h3, .serif-title {
 }
 
 .like-btn.liked {
-  background: linear-gradient(135deg, #152c62, #2b5cbe);
+  background: linear-gradient(135deg, #101d38, #1e335c);
   border-color: var(--pearl-glow);
   color: #fff;
 }
@@ -526,7 +525,7 @@ h1, h2, h3, .serif-title {
 }
 
 .media-pill {
-  background: rgba(4, 7, 14, 0.88);
+  background: rgba(6, 7, 9, 0.88);
   backdrop-filter: blur(6px);
   border: 1px solid var(--border-gold);
   color: var(--pearl-glow);
@@ -587,7 +586,7 @@ h1, h2, h3, .serif-title {
 
 /* Klaus Voice Expertise Bar inside Card */
 .voice-box {
-  background: linear-gradient(135deg, rgba(21, 44, 98, 0.35), rgba(10, 16, 29, 0.8));
+  background: linear-gradient(135deg, rgba(16, 28, 52, 0.45), rgba(11, 12, 16, 0.9));
   border: 1px solid var(--border-gold);
   border-radius: 12px;
   padding: 0.6rem 0.8rem;
@@ -599,9 +598,9 @@ h1, h2, h3, .serif-title {
 }
 
 .voice-play-btn {
-  background: linear-gradient(135deg, #16306b, #2b5cbe);
-  color: #fff;
-  border: 1px solid rgba(184, 204, 245, 0.4);
+  background: linear-gradient(135deg, #12203d, #213763);
+  color: var(--pearl-glow);
+  border: 1px solid rgba(184, 204, 245, 0.35);
   width: 34px;
   height: 34px;
   border-radius: 50%;
@@ -684,7 +683,7 @@ h1, h2, h3, .serif-title {
 .modal-backdrop {
   position: fixed;
   inset: 0;
-  background: rgba(2, 4, 10, 0.86);
+  background: rgba(3, 4, 7, 0.88);
   backdrop-filter: blur(10px);
   z-index: 250;
   display: none;
@@ -727,7 +726,7 @@ h1, h2, h3, .serif-title {
 
 /* Detail Modal Media Viewer */
 .detail-media-stage {
-  background: #03050a;
+  background: #050608;
   border-radius: 14px;
   overflow: hidden;
   border: 1px solid var(--border-subtle);
@@ -770,7 +769,7 @@ h1, h2, h3, .serif-title {
 .detail-thumb.active {
   border-color: var(--gold-light);
   color: var(--pearl-glow);
-  background: rgba(29, 64, 135, 0.35);
+  background: #121e36;
 }
 
 /* Forms */
@@ -818,8 +817,8 @@ h1, h2, h3, .serif-title {
 
 /* Audio Recorder Box in Admin */
 .recorder-panel {
-  background: rgba(21, 44, 98, 0.18);
-  border: 1px dashed var(--gold);
+  background: rgba(18, 30, 54, 0.25);
+  border: 1px dashed var(--border-gold);
   border-radius: 12px;
   padding: 1rem;
   display: flex;
@@ -878,7 +877,7 @@ h1, h2, h3, .serif-title {
 .inquiry-item {
   background: var(--bg-card);
   border: 1px solid var(--border-subtle);
-  border-left: 4px solid var(--gold);
+  border-left: 4px solid var(--gold-light);
   border-radius: 12px;
   padding: 1rem;
   margin-bottom: 0.85rem;
@@ -895,7 +894,7 @@ h1, h2, h3, .serif-title {
 
 /* Footer */
 .footer {
-  background: #020408;
+  background: #040507;
   border-top: 1px solid var(--border-gold);
   padding: 3rem 1.5rem 5.5rem;
   margin-top: 4rem;
@@ -916,8 +915,7 @@ h1, h2, h3, .serif-title {
   height: 68px;
   border-radius: 50%;
   background: #f5f7fa;
-  border: 2px solid var(--gold);
-  box-shadow: 0 0 14px rgba(43, 92, 190, 0.35);
+  border: 2px solid var(--gold-light);
   padding: 4px;
   cursor: pointer;
   user-select: none;
@@ -958,7 +956,7 @@ h1, h2, h3, .serif-title {
   margin-top: 0.5rem;
   padding: 0.55rem 1.2rem;
   border-radius: 999px;
-  background: rgba(21, 44, 98, 0.22);
+  background: #0b111e;
   border: 1px solid var(--border-gold);
   font-size: 0.82rem;
   color: var(--text-muted);
@@ -974,11 +972,11 @@ h1, h2, h3, .serif-title {
   bottom: 16px;
   right: 16px;
   z-index: 200;
-  background: rgba(6, 10, 20, 0.96);
-  border: 1px solid var(--gold);
+  background: rgba(8, 10, 14, 0.96);
+  border: 1px solid var(--border-gold);
   border-radius: 16px;
   padding: 0.65rem 0.9rem;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.9);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.92);
   display: flex;
   align-items: center;
   gap: 0.6rem;
@@ -1004,8 +1002,8 @@ h1, h2, h3, .serif-title {
 }
 
 .toast {
-  background: #0a101d;
-  border: 1px solid var(--gold);
+  background: #0d1017;
+  border: 1px solid var(--gold-light);
   color: #fff;
   padding: 0.75rem 1.3rem;
   border-radius: 999px;
