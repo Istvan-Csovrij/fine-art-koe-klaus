@@ -1,0 +1,7 @@
+# Geheime Passwort- und Konfigurationsdateien (werden NIEMALS zu GitHub hochgeladen!)
+config.secret.js
+.env
+.env.local
+.vercel
+.netlify
+node_modules/

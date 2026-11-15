@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fine ART – KÖ KLAUS | Exklusive Uhren, Schmuck & Luxustaschen</title>
+  <!-- Edle Schriften für den Luxus-Look -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ====================================================================
+       GEHEIME ADMIN-LEISTE (Wird NUR eingeblendet, wenn Klaus oder Du eingeloggt seid!)
+       Normale Besucher sehen diese Leiste überhaupt nicht.
+       ==================================================================== -->
+  <div class="admin-topbar" id="adminTopbar">
+    <div class="admin-topbar-inner">
+      <div class="admin-badge-title">
+        <span>👑</span>
+        <span>Admin-Modus aktiv (Klaus Kö & Administrator)</span>
+      </div>
+      <div class="admin-actions">
+        <button class="btn btn-gold" onclick="openNewItemModal()">
+          ➕ Neues Stück einstellen (Foto / Audio / Video)
+        </button>
+        <button class="btn btn-outline" onclick="openAdminDashboardModal('inquiries')">
+          🔔 Kunden-Anfragen <span class="notif-count" id="adminNotifCount">2</span>
+        </button>
+        <button class="btn btn-outline" onclick="openAdminDashboardModal('ranking')">
+          🏆 Beliebteste Stücke (❤️)
+        </button>
+        <button class="btn btn-danger" onclick="quickSwitchRole(false)">
+          🔒 Admin verlassen
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====================================================================
+       NAVIGATION OBEN (Mit dem Original-Logo von Klaus Kö)
+       ==================================================================== -->
+  <header class="navbar">
+    <div class="navbar-inner">
+      <div class="brand" onclick="setCategory('Alle')">
+        <div class="brand-logo-wrap">
+          <img class="klaus-logo-img" alt="Fine ART Kö Klaus Logo" />
+        </div>
+        <div class="brand-text">
+          <span class="brand-sub">Exklusiver Handel & Expertise</span>
+          <div class="brand-name">
+            <span class="fine-red">Fine</span> ART · KÖ KLAUS
+          </div>
+        </div>
+      </div>
+
+      <nav class="nav-links">
+        <button class="nav-pill active" data-cat="Alle" onclick="setCategory('Alle')">Alle Exponate</button>
+        <button class="nav-pill" data-cat="Uhren" onclick="setCategory('Uhren')">⌚ Luxusuhren</button>
+        <button class="nav-pill" data-cat="Schmuck" onclick="setCategory('Schmuck')">💎 Feiner Schmuck</button>
+        <button class="nav-pill" data-cat="Taschen" onclick="setCategory('Taschen')">👜 Designer-Taschen</button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ====================================================================
+       HERO-BEREICH (Großer Empfangsbereich mit Klaus' Logo & Vorteilen)
+       ==================================================================== -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-logo-card">
+        <img class="klaus-logo-img" alt="Fine ART Kö Klaus" />
+      </div>
+      <div class="hero-content">
+        <div style="color:var(--gold); font-size:0.82rem; font-weight:600; text-transform:uppercase; letter-spacing:0.15em; margin-bottom:0.35rem;">
+          Persönlich kuratiert von Klaus Kö
+        </div>
+        <h1>Exklusive <span>Uhren, Schmuck</span> & ausgesuchte Einzelstücke</h1>
+        <p>
+          Entdecken Sie geprüfte Originale mit Charakter. Jedes Exponat wird von Klaus Kö persönlich begutachtet – inklusive
+          <strong>originaler Sprach-Expertise zum Anhören</strong> und <strong>Detail-Video</strong>.
+        </p>
+        <div class="hero-features">
+          <span class="hero-chip">🎙️ Mit persönlicher Sprach-Expertise von Klaus</span>
+          <span class="hero-chip">🎥 Detail-Videos zu den Stücken</span>
+          <span class="hero-chip">✔️ 100 % geprüfte Echtheit</span>
+          <span class="hero-chip">✉️ Direkte Anfrage in der App</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================================
+       FILTER, KATEGORIEN & SORTIERUNG (inkl. Beliebteste ❤️)
+       ==================================================================== -->
+  <section class="catalog-controls">
+    <div class="category-tabs">
+      <button class="cat-tab active" data-cat="Alle" onclick="setCategory('Alle')">✨ Alle Stücke</button>
+      <button class="cat-tab" data-cat="Uhren" onclick="setCategory('Uhren')">⌚ Uhren</button>
+      <button class="cat-tab" data-cat="Schmuck" onclick="setCategory('Schmuck')">💎 Schmuck</button>
+      <button class="cat-tab" data-cat="Taschen" onclick="setCategory('Taschen')">👜 Taschen</button>
+    </div>
+
+    <div class="sort-search-wrap">
+      <input
+        type="search"
+        class="input-luxury"
+        placeholder="🔍 Modell, Marke suchen..."
+        oninput="setSearch(this.value)"
+      />
+      <select class="select-luxury" onchange="setSort(this.value)">
+        <option value="newest">Sortierung: Neueste zuerst</option>
+        <option value="popular">❤️ Beliebteste zuerst (Meiste Herzen)</option>
+        <option value="price-asc">Preis: Aufsteigend</option>
+        <option value="price-desc">Preis: Absteigend</option>
+      </select>
+    </div>
+  </section>
+
+  <!-- ====================================================================
+       HAUPT-KATALOG (Hier erscheinen alle Uhren, Schmuckstücke & Taschen)
+       ==================================================================== -->
+  <main class="catalog-section">
+    <div class="product-grid" id="productGrid"></div>
+  </main>
+
+  <!-- ====================================================================
+       DETAIL-MODAL (Große Fotos, Kurz-Video & Klaus' Sprachbeschreibung)
+       ==================================================================== -->
+  <div class="modal-backdrop" id="detailModal" onclick="if(event.target===this) closeModal('detailModal')">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeModal('detailModal')">✕</button>
+      <div id="detailModalContent"></div>
+    </div>
+  </div>
+
+  <!-- ====================================================================
+       KUNDEN-ANFRAGE MODAL (100% innerhalb deiner App – ohne WhatsApp!)
+       ==================================================================== -->
+  <div class="modal-backdrop" id="inquiryModal" onclick="if(event.target===this) closeModal('inquiryModal')">
+    <div class="modal-box" style="max-width:560px;">
+      <button class="modal-close" onclick="closeModal('inquiryModal')">✕</button>
+      <h2 class="serif-title" style="color:var(--gold-light); margin-bottom:0.4rem;">✉️ Interesse melden / Nachricht an Klaus Kö</h2>
+      <p style="color:var(--text-muted); font-size:0.9rem; margin-bottom:1.1rem;">
+        Ihre Anfrage wird direkt und vertraulich in dieser App an Klaus Kö gesendet.
+      </p>
+
+      <div id="inquiryItemPreview" style="display:flex; align-items:center; gap:0.9rem; background:var(--bg-card); padding:0.8rem; border-radius:12px; border:1px solid var(--border-gold); margin-bottom:1.2rem;"></div>
+
+      <form id="inquiryForm" onsubmit="submitInquiry(event)">
+        <input type="hidden" id="inquiryItemId" />
+        <div class="form-group">
+          <label for="inqName">Ihr Name *</label>
+          <input type="text" id="inqName" required placeholder="z. B. Max Mustermann" />
+        </div>
+        <div class="form-group">
+          <label for="inqContact">Ihre Telefonnummer oder E-Mail für Rückfragen *</label>
+          <input type="text" id="inqContact" required placeholder="z. B. 0171 / 1234567 oder name@mail.de" />
+        </div>
+        <div class="form-group">
+          <label for="inqMessage">Ihre Nachricht an Klaus Kö *</label>
+          <textarea id="inqMessage" rows="4" required></textarea>
+        </div>
+        <div style="display:flex; justify-content:flex-end; gap:0.7rem; margin-top:1rem;">
+          <button type="button" class="btn btn-outline" onclick="closeModal('inquiryModal')">Abbrechen</button>
+          <button type="submit" class="btn btn-gold">✉️ Anfrage verbindlich absenden</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ====================================================================
+       ADMIN-MODAL: NEUES STÜCK EINSTELLEN / BEARBEITEN (Foto + Mikrofon + Video)
+       ==================================================================== -->
+  <div class="modal-backdrop" id="itemFormModal" onclick="if(event.target===this) closeModal('itemFormModal')">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeModal('itemFormModal')">✕</button>
+      <h2 class="serif-title" id="itemModalTitle" style="color:var(--gold-light); margin-bottom:1.2rem;">
+        ➕ Neues Stück einstellen
+      </h2>
+
+      <form id="itemForm" onsubmit="saveItemForm(event)">
+        <input type="hidden" id="editItemId" />
+        <div class="form-grid">
+          <div class="form-group full">
+            <label for="itemTitle">Bezeichnung / Modell *</label>
+            <input type="text" id="itemTitle" required placeholder="z. B. Rolex Submariner Date 126610LN" />
+          </div>
+
+          <div class="form-group">
+            <label for="itemCategory">Kategorie *</label>
+            <select id="itemCategory">
+              <option value="Uhren">⌚ Uhren</option>
+              <option value="Schmuck">💎 Schmuck</option>
+              <option value="Taschen">👜 Taschen</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="itemPrice">Preis in Euro (€) *</label>
+            <input type="number" id="itemPrice" required placeholder="z. B. 14500" min="0" />
+          </div>
+
+          <div class="form-group">
+            <label for="itemStatus">Verfügbarkeits-Status</label>
+            <select id="itemStatus">
+              <option value="available">● Sofort verfügbar</option>
+              <option value="reserved">⏳ Reserviert</option>
+              <option value="sold">✓ Verkauft</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="itemCondition">Zustand / Lieferumfang (Box, Papiere, Baujahr)</label>
+            <input type="text" id="itemCondition" placeholder="z. B. Full Set 2022 • Ungetragen" />
+          </div>
+
+          <!-- 1. FOTOS HOCHLADEN -->
+          <div class="form-group full">
+            <label>📸 Fotos auswählen (vom Handy oder PC – auch mehrere möglich)</label>
+            <input type="file" accept="image/*" multiple onchange="handleImageFilesSelected(this)" />
+            <div id="uploadedImagesPreview" style="display:flex; gap:0.6rem; flex-wrap:wrap; margin-top:0.5rem;"></div>
+          </div>
+
+          <!-- 2. SPRACH-BESCHREIBUNG (MIKROFON ODER DATEI) -->
+          <div class="form-group full">
+            <label>🎙️ Klaus' Sprach-Expertise (Einfach einsprechen statt viel tippen!)</label>
+            <div class="recorder-panel">
+              <div class="recorder-controls">
+                <button type="button" id="micRecBtn" class="btn btn-gold" onclick="toggleMicRecording()">
+                  🎙️ Sprachaufnahme per Mikrofon starten
+                </button>
+                <span style="color:var(--text-muted); font-size:0.82rem;">oder Audio-Datei wählen:</span>
+                <input type="file" accept="audio/*" onchange="handleAudioFileSelected(this)" style="max-width:230px; font-size:0.8rem;" />
+              </div>
+              <div id="recStatusText" style="font-size:0.84rem; color:var(--gold-light);">
+                Bereit für Sprachaufnahme per Mikrofon
+              </div>
+              <audio id="recordedAudioPreview" controls style="display:none; width:100%; height:36px; margin-top:0.3rem;"></audio>
+              <input
+                type="text"
+                id="itemVoiceText"
+                placeholder="Optional: Kurzer Hinweis-Text zur Sprachnotiz (z. B. 'Klaus erklärt Zustand & Papiere')"
+              />
+            </div>
+          </div>
+
+          <!-- 3. KURZ-VIDEO HOCHLADEN -->
+          <div class="form-group full">
+            <label>🎥 Kurz-Video der Uhr / des Schmuckstücks hochladen (optional)</label>
+            <input type="file" accept="video/*" onchange="handleVideoFileSelected(this)" />
+            <video id="uploadedVideoPreview" controls style="display:none; max-height:180px; border-radius:10px; margin-top:0.5rem;"></video>
+          </div>
+
+          <!-- 4. TEXT-BESCHREIBUNG -->
+          <div class="form-group full">
+            <label for="itemDesc">Kurze schriftliche Beschreibung *</label>
+            <textarea id="itemDesc" rows="3" required placeholder="Wichtigste Eckdaten kurz zusammenfassen..."></textarea>
+          </div>
+        </div>
+
+        <div style="display:flex; justify-content:flex-end; gap:0.75rem; margin-top:1rem;">
+          <button type="button" class="btn btn-outline" onclick="closeModal('itemFormModal')">Abbrechen</button>
+          <button type="submit" class="btn btn-gold">✨ Jetzt im Katalog veröffentlichen</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ====================================================================
+       ADMIN-COCKPIT MODAL (Kunden-Anfragen Postfach & Beliebtheits-Zähler)
+       ==================================================================== -->
+  <div class="modal-backdrop" id="adminDashboardModal" onclick="if(event.target===this) closeModal('adminDashboardModal')">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeModal('adminDashboardModal')">✕</button>
+      <div id="adminDashboardContent"></div>
+    </div>
+  </div>
+
+  <!-- ====================================================================
+       VERSTECKTER ADMIN-LOGIN MODAL (Passwort-Abfrage für Klaus & Dich)
+       ==================================================================== -->
+  <div class="modal-backdrop" id="adminLoginModal" onclick="if(event.target===this) closeModal('adminLoginModal')">
+    <div class="modal-box" style="max-width:420px; text-align:center;">
+      <button class="modal-close" onclick="closeModal('adminLoginModal')">✕</button>
+      <div style="width:68px; height:68px; margin:0 auto 0.9rem; border-radius:50%; background:#f5f5f5; border:2px solid var(--gold); padding:4px;">
+        <img class="klaus-logo-img" alt="Logo" style="width:100%; height:100%; object-fit:contain;" />
+      </div>
+      <h2 class="serif-title" style="color:var(--gold-light); margin-bottom:0.4rem;">Interner Bereich</h2>
+      <p style="color:var(--text-muted); font-size:0.86rem; margin-bottom:1.2rem;">
+        Nur für Klaus Kö & Administrator. Bitte Zugangscode eingeben:
+      </p>
+      <form onsubmit="handleAdminLogin(event)">
+        <div class="form-group">
+          <input
+            type="password"
+            id="adminPasswordInput"
+            placeholder="Admin-Passwort eingeben"
+            required
+            style="text-align:center; font-size:1rem;"
+          />
+        </div>
+        <button type="submit" class="btn btn-gold" style="width:100%;">🔓 Einloggen</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ====================================================================
+       IMPRESSUM & DATENSCHUTZ MODAL (Platzhalter für später)
+       ==================================================================== -->
+  <div class="modal-backdrop" id="legalModal" onclick="if(event.target===this) closeModal('legalModal')">
+    <div class="modal-box" style="max-width:580px;">
+      <button class="modal-close" onclick="closeModal('legalModal')">✕</button>
+      <div id="legalModalBody"></div>
+    </div>
+  </div>
+
+  <!-- ====================================================================
+       FOOTER (Mit geheimem 3-Klick-Login auf dem Logo & deiner Visitenkarte!)
+       ==================================================================== -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div
+        class="footer-logo-secret"
+        onclick="handleFooterSecretClick()"
+        title="Geheimer Tipp für Klaus: 3x kurz hintereinander klicken für Admin-Login"
+      >
+        <img class="klaus-logo-img" alt="Fine ART Kö Klaus" />
+      </div>
+      <div>
+        <strong class="serif-title" style="font-size:1.15rem; color:var(--gold-light);">Fine ART – KÖ KLAUS</strong>
+        <p style="color:var(--text-muted); font-size:0.85rem; margin-top:0.2rem;">
+          Exklusiver Handel mit Uhren, Schmuck & Luxustaschen
+        </p>
+      </div>
+
+      <div class="footer-links">
+        <button onclick="openLegalModal('impressum')">Impressum</button>
+        <button onclick="openLegalModal('datenschutz')">Datenschutz</button>
+      </div>
+
+      <!-- Deine persönliche Entwickler-Referenz (Portfolio-Effekt!) -->
+      <div class="developer-credit">
+        ✨ Designed & Developed mit Leidenschaft – <strong>Individuelle Web- & App-Entwicklung</strong>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ====================================================================
+       PROTOTYP-UMSCHALTER UNTEN RECHTS
+       (Damit du als Entwickler sofort mit 1 Klick zwischen Kunden-Sicht
+        und Klaus' Admin-Sicht hin- und herschalten kannst!)
+       ==================================================================== -->
+  <div class="proto-switcher" id="protoSwitcher">
+    <span class="proto-switcher-label">🛠️ Prototyp-Ansicht testen:</span>
+    <button id="protoBtnCustomer" class="btn btn-gold" style="padding:0.4rem 0.85rem; font-size:0.8rem;" onclick="quickSwitchRole(false)">
+      👁️ Normale Kunden-Sicht
+    </button>
+    <button id="protoBtnAdmin" class="btn btn-outline" style="padding:0.4rem 0.85rem; font-size:0.8rem;" onclick="quickSwitchRole(true)">
+      👑 Klaus / Admin-Sicht
+    </button>
+  </div>
+
+  <div class="toast-container" id="toastContainer"></div>
+
+  <script src="config.secret.js"></script>
+  <script src="logo.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
