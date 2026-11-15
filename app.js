@@ -173,11 +173,6 @@ let recInterval = null;
 
 // Init App
 document.addEventListener('DOMContentLoaded', () => {
-  // Set Official Klaus Logo everywhere
-  document.querySelectorAll('.klaus-logo-img').forEach(img => {
-    img.src = window.KLAUS_LOGO_DATA_URI;
-  });
-
   loadData();
   renderAll();
 
