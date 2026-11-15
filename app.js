@@ -174,13 +174,46 @@ let recInterval = null;
 // Init App
 document.addEventListener('DOMContentLoaded', () => {
   loadData();
-  renderAll();
+
+  if (sessionStorage.getItem('klaus_site_unlocked') === '1') {
+    unlockProtectedSite();
+  }
 
   // Check URL hash #admin
   if (window.location.hash === '#admin') {
     openAdminLoginModal();
   }
 });
+
+function unlockProtectedSite() {
+  const gate = document.getElementById('siteLockGate');
+  const wrapper = document.getElementById('protectedAppWrapper');
+  if (gate) gate.style.display = 'none';
+  if (wrapper) wrapper.style.display = 'block';
+  document.title = 'Fine ART – KÖ KLAUS | Exklusive Uhren, Schmuck & Luxustaschen';
+  document.querySelectorAll('.klaus-logo-img').forEach(img => {
+    img.src = 'logo.png';
+  });
+  renderAll();
+}
+
+async function handleSiteGateUnlock(e) {
+  e.preventDefault();
+  const pwd = document.getElementById('siteGatePasswordInput').value.trim();
+  const errEl = document.getElementById('siteGateError');
+  const secretFromIgnoredFile = window.ADMIN_SECRET_CONFIG && window.ADMIN_SECRET_CONFIG.adminPassword;
+  const hash = await sha256Hex(pwd);
+  const validHash = '62b3a58e5420f66b4b14568b12f1b0d74d39634c440fbbcbdb76bb5028044893';
+
+  if ((secretFromIgnoredFile && pwd === secretFromIgnoredFile) || hash === validHash) {
+    sessionStorage.setItem('klaus_site_unlocked', '1');
+    if (errEl) errEl.style.display = 'none';
+    unlockProtectedSite();
+    showToast('🔓 Vorschau entsperrt – Willkommen!');
+  } else {
+    if (errEl) errEl.style.display = 'block';
+  }
+}
 
 function loadData() {
   try {

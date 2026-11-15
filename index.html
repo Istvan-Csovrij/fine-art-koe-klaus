@@ -3,14 +3,48 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Fine ART – KÖ KLAUS | Exklusive Uhren, Schmuck & Luxustaschen</title>
+  <title>Private Vorschau – Geschützter Bereich</title>
   <!-- Edle Schriften für den Luxus-Look -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=5" />
+  <link rel="stylesheet" href="styles.css?v=6" />
 </head>
 <body>
+
+  <!-- ====================================================================
+       PASSWORT-SCHUTZ VOR DER GESAMTEN SEITE
+       (Fremde Besucher sehen weder Logo noch Name noch Uhren!)
+       ==================================================================== -->
+  <div id="siteLockGate" style="min-height:100vh; display:flex; align-items:center; justify-content:center; padding:1.5rem;">
+    <div style="background:var(--bg-secondary); border:1px solid var(--border-gold); border-radius:20px; max-width:420px; width:100%; padding:2.2rem 1.8rem; text-align:center; box-shadow:var(--shadow-luxury);">
+      <div style="font-size:2.2rem; margin-bottom:0.6rem;">🔒</div>
+      <h2 class="serif-title" style="color:var(--pearl-glow); margin-bottom:0.4rem;">Geschützte Entwurfs-Vorschau</h2>
+      <p style="color:var(--text-muted); font-size:0.88rem; margin-bottom:1.4rem;">
+        Diese Anwendung befindet sich in der privaten Abstimmung. Bitte geben Sie den Zugangscode ein:
+      </p>
+      <form onsubmit="handleSiteGateUnlock(event)">
+        <div class="form-group">
+          <input
+            type="password"
+            id="siteGatePasswordInput"
+            placeholder="Zugangscode eingeben"
+            required
+            style="text-align:center; font-size:1rem;"
+          />
+        </div>
+        <div id="siteGateError" style="color:var(--crimson-light); font-size:0.82rem; margin-bottom:0.8rem; display:none;">
+          ❌ Falscher Zugangscode.
+        </div>
+        <button type="submit" class="btn btn-gold" style="width:100%;">🔓 Vorschau entsperren</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ====================================================================
+       GESCHÜTZTE APP (Wird erst nach Passwort-Eingabe sichtbar & geladen)
+       ==================================================================== -->
+  <div id="protectedAppWrapper" style="display:none;">
 
   <!-- ====================================================================
        GEHEIME ADMIN-LEISTE (Wird NUR eingeblendet, wenn Klaus oder Du eingeloggt seid!)
@@ -46,7 +80,7 @@
     <div class="navbar-inner">
       <div class="brand" onclick="setCategory('Alle')">
         <div class="brand-logo-wrap">
-          <img class="klaus-logo-img" src="logo.png" alt="Fine ART Kö Klaus Logo" />
+          <img class="klaus-logo-img" alt="Logo" />
         </div>
         <div class="brand-text">
           <span class="brand-sub">Exklusiver Handel & Expertise</span>
@@ -71,7 +105,7 @@
   <section class="hero">
     <div class="hero-inner">
       <div class="hero-logo-card">
-        <img class="klaus-logo-img" src="logo.png" alt="Fine ART Kö Klaus" />
+        <img class="klaus-logo-img" alt="Logo" />
       </div>
       <div class="hero-content">
         <div style="color:var(--gold); font-size:0.82rem; font-weight:600; text-transform:uppercase; letter-spacing:0.15em; margin-bottom:0.35rem;">
@@ -327,7 +361,7 @@
         onclick="handleFooterSecretClick()"
         title="Geheimer Tipp für Klaus: 3x kurz hintereinander klicken für Admin-Login"
       >
-        <img class="klaus-logo-img" src="logo.png" alt="Fine ART Kö Klaus" />
+        <img class="klaus-logo-img" alt="Logo" />
       </div>
       <div>
         <strong class="serif-title" style="font-size:1.15rem; color:var(--gold-light);">Fine ART – KÖ KLAUS</strong>
@@ -363,10 +397,12 @@
     </button>
   </div>
 
+  </div><!-- Ende #protectedAppWrapper -->
+
   <div class="toast-container" id="toastContainer"></div>
 
   <script src="config.secret.js"></script>
-  <script src="logo.js?v=2"></script>
-  <script src="app.js?v=2"></script>
+  <script src="logo.js?v=6"></script>
+  <script src="app.js?v=6"></script>
 </body>
 </html>
