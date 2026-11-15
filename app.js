@@ -673,7 +673,7 @@ async function handleAdminLogin(e) {
   const secretFromIgnoredFile = window.ADMIN_SECRET_CONFIG && window.ADMIN_SECRET_CONFIG.adminPassword;
   // SHA-256 Hash als Fallback, damit das Klartext-Passwort NIEMALS im Git-Code steht
   const hash = await sha256Hex(pwd);
-  const validHash = '8c82e7b93c9c907b64a6c0f86b27c7a0c154d9a3e4d7b2a6c2f0c5b1e2d3f4a5';
+  const validHash = '62b3a58e5420f66b4b14568b12f1b0d74d39634c440fbbcbdb76bb5028044893';
 
   if ((secretFromIgnoredFile && pwd === secretFromIgnoredFile) || hash === validHash) {
     isAdmin = true;
